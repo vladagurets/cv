@@ -1,10 +1,14 @@
 :root {
-  --page-width: 210mm;
-  --page-height: 297mm;
+  --page-width: 800px;
   --avatar-size: 170px;
-  --h1-size: 2.5rem;
+  --h1-size: 30px;
   --cell-padding: 15px;
-  --avatar-border-pad: 3px;
+  --avatar-border-pad: 0;
+  --corner-div-size: 10px;
+  --gap-span: 10px;
+  --font-color: black;
+  --background-color: white;
+  --main-border: 1px solid var(--background-color);
 }
 
 * {
@@ -17,33 +21,75 @@ html {
   font-family: 'Source Code Pro', monospace;
 }
 
+body {
+  position: relative;
+  background-color: var(--background-color);
+}
+
+body.-dark {
+  --font-color: white;
+  --background-color: black;
+}
+
 h1 {
   font-size: var(--h1-size);
+  user-select: none;
 }
 
 h2 {
   font-size: calc(var(--h1-size) * .7);
+  user-select: none;
+}
+
+h3 {
+  font-size: calc(var(--h1-size) * .5);
+  margin-bottom: 15px;
+  text-decoration: underline;
+  user-select: none;
+}
+
+p, span, h1, h2, h3, b, i, div, li {
+  color: var(--font-color);
+}
+
+section {
+  border-color: var(--font-color) !important;
+}
+
+ul > li {
+  padding-bottom: 10px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .resume {
   width: var(--page-width);
-  height: var(--page-height);
   margin: 0 auto;
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: var(--gap-span);
   grid-template-areas:
     "name name photo"
-    "work work about"
-    "work work education"
-    "community skills skills";
+    "work work skills"
+    "work work skills"
+    "education education contacts";
 }
 
 .resume > section {
   padding: var(--cell-padding);
-  border: 1px solid black;
+  border: var(--main-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume > section:hover .corner-div {
+  border-radius: 0;
+  background-color: var(--font-color);
+  transition: all .6s;
 }
 
 .name {
@@ -75,20 +121,27 @@ h2 {
   grid-area: education;
 }
 
-.community {
-  grid-area: community;
+.contacts {
+  grid-area: contacts;
 }
 
 .skills {
   grid-area: skills;
 }
 
+.avatar-wrapper {
+  margin: auto;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 3px;
+}
+
 .avatar {
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: calc(var(--avatar-size) / 2);
-  border: 1px solid black;
-  margin: auto;
+  border: var(--main-border);
+  background-repeat: no-repeat;
   background-image: url(./avatar.jpg);
   background-size: cover;
   position: relative;
@@ -98,14 +151,208 @@ h2 {
   content: '';
   position: absolute;
   border-radius: calc(var(--avatar-size) / 2);
-  border: 1px solid white;
   top: var(--avatar-border-pad);
   bottom: var(--avatar-border-pad);
   left: var(--avatar-border-pad);
   right: var(--avatar-border-pad);
+  background-image: url(./dashed-circle.png);
+  background-size: cover;
+  animation: rotate 100s linear infinite;
+  z-index: 1;
 }
 
+.photo:hover .avatar::after {
+  animation: rotate 5s linear infinite;
+}
+
+.no-bullets {
+  list-style-type: none;
+}
+
+.bullet-list {
+  padding-left: 25px;
+}
+
+.education-list li > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-list li b {
+  font-size: 15px;
+}
+
+.education-list li span {
+  font-size: 12px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+}
+
+.contact-list li > svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.contact-list li > a {
+  color: var(--font-color);
+}
+
+.work-title {
+  font-size: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.work-title > label {
+  font-style: italic;
+}
+
+.company-name {
+  font-style: italic;
+  font-size: 13px;
+  padding-bottom: 5px;
+}
+
+.work-description-list  {
+  font-size: 13px;
+}
+
+.work-description-list > li:hover {
+  list-style-type: disc;
+}
+
+.skills-list > li {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* START - Corner div styles */
+/* ---------------------- */
+
+.corner-div {
+  position: absolute;
+  z-index: 1;
+  width: var(--corner-div-size);
+  height: var(--corner-div-size);
+  border-radius: calc(var(--corner-div-size) / 2);
+  border: var(--main-border);
+}
+
+.corner-div.top-left {
+  transform: translate(-50%, -50%);
+  border-top: none;
+  border-left: none;
+  top: 0;
+  left: 0;
+}
+
+.corner-div.top-right {
+  transform: translate(50%, -50%);
+  border-top: none;
+  border-right: none;
+  top: 0;
+  right: 0;
+}
+
+.corner-div.bottom-left {
+  transform: translate(-50%, 50%);
+  border-bottom: none;
+  border-left: none;
+  bottom: 0;
+  left: 0;
+}
+
+.corner-div.bottom-right {
+  transform: translate(50%, 50%);
+  bottom: 0;
+  right: 0;
+}
+
+/* ---------------------- */
+/* END - Corner div styles */
+
+
+
+/* START - Switcher styles */
+/* ---------------------- */
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 0;
+  right: 0;
+  transform: scale(.5);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--font-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--background-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--font-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--font-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* ---------------------- */
+/* END - Switcher styles */
+
+
+
 /* START - Bouncing i rules */
+/* ---------------------- */
 
 .i-container {
   display: inline-block;
@@ -133,4 +380,80 @@ h2 {
   100% { transform: scale(1,1)      translateY(0); }
 }
 
+/* ---------------------- */
 /* END - Bouncing i rules */
+
+
+
+/* START - Rotate animation */
+/* ---------------------- */
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------- */
+/* END - Rotate animation */
+
+
+
+/* START - Mobile styles */
+/* ---------------------- */
+
+@media not print {
+  @media (max-width: 700px) {
+    :root {
+      --h1-size: 25px;
+    }
+    
+    .work-title > b, .work-title > label {
+      display: block;
+      min-width: 100%;
+    }
+    .resume {
+      width: 100%;
+      grid-template-columns: 100%;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "name"
+        "photo"
+        "skills"
+        "work"
+        "education"
+        "contacts";
+    }
+  }
+}
+
+/* END - Mobile styles */
+
+
+/* START - Print styles */
+/* ---------------------- */
+
+@media print {
+  .resume {
+    width : 210mm;
+    height: 297mm;
+  }
+  a {
+    text-decoration: none;
+  }
+  .avatar {
+    content: url(./avatar.jpg);
+  }
+  .switch {
+    display: none;
+  }
+}
+
+@page {
+  padding: 0;
+  margin: 0cm;
+  size: A4 portrait;
+}
+
+/* ---------------------- */
+/* END - Print styles */
