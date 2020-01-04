@@ -1,0 +1,136 @@
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+  --avatar-size: 170px;
+  --h1-size: 2.5rem;
+  --cell-padding: 15px;
+  --avatar-border-pad: 3px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: 'Source Code Pro', monospace;
+}
+
+h1 {
+  font-size: var(--h1-size);
+}
+
+h2 {
+  font-size: calc(var(--h1-size) * .7);
+}
+
+.resume {
+  width: var(--page-width);
+  height: var(--page-height);
+  margin: 0 auto;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-areas:
+    "name name photo"
+    "work work about"
+    "work work education"
+    "community skills skills";
+}
+
+.resume > section {
+  padding: var(--cell-padding);
+  border: 1px solid black;
+}
+
+.name {
+  grid-area: name;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name > h2 {
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.photo {
+  grid-area: photo;
+  display: flex;
+}
+
+.about {
+  grid-area: about;
+}
+
+.work {
+  grid-area: work;
+}
+
+.education {
+  grid-area: education;
+}
+
+.community {
+  grid-area: community;
+}
+
+.skills {
+  grid-area: skills;
+}
+
+.avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: calc(var(--avatar-size) / 2);
+  border: 1px solid black;
+  margin: auto;
+  background-image: url(./avatar.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.avatar::after {
+  content: '';
+  position: absolute;
+  border-radius: calc(var(--avatar-size) / 2);
+  border: 1px solid white;
+  top: var(--avatar-border-pad);
+  bottom: var(--avatar-border-pad);
+  left: var(--avatar-border-pad);
+  right: var(--avatar-border-pad);
+}
+
+/* START - Bouncing i rules */
+
+.i-container {
+  display: inline-block;
+  transform-origin: bottom;
+}
+
+.height-fix {
+  line-height: 0.55;
+}
+
+.bounce {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: bounce;
+  animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1,1)      translateY(0); }
+  10%  { transform: scale(1.1,.9)   translateY(0); }
+  30%  { transform: scale(.9,1.1)   translateY(-10px); }
+  50%  { transform: scale(1.05,.95) translateY(0); }
+  57%  { transform: scale(1,1)      translateY(-2px); }
+  64%  { transform: scale(1,1)      translateY(0); }
+  100% { transform: scale(1,1)      translateY(0); }
+}
+
+/* END - Bouncing i rules */
