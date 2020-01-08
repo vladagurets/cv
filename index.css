@@ -4,7 +4,6 @@
   --h1-size: 30px;
   --cell-padding: 15px;
   --avatar-border-pad: 0;
-  --corner-div-size: 10px;
   --gap-span: 10px;
   --font-color: black;
   --background-color: white;
@@ -84,12 +83,6 @@ ul > li {
   border: var(--main-border);
   position: relative;
   overflow: hidden;
-}
-
-.resume > section:hover .corner-div {
-  border-radius: 0;
-  background-color: var(--font-color);
-  transition: all .6s;
 }
 
 .name {
@@ -232,52 +225,6 @@ ul > li {
   display: flex;
   flex-direction: column;
 }
-
-
-/* START - Corner div styles */
-/* ---------------------- */
-
-.corner-div {
-  position: absolute;
-  z-index: 1;
-  width: var(--corner-div-size);
-  height: var(--corner-div-size);
-  border-radius: calc(var(--corner-div-size) / 2);
-  border: 1px solid var(--font-color);
-}
-
-.corner-div.top-left {
-  transform: translate(-50%, -50%);
-  border-top: none;
-  border-left: none;
-  top: 0;
-  left: 0;
-}
-
-.corner-div.top-right {
-  transform: translate(50%, -50%);
-  border-top: none;
-  border-right: none;
-  top: 0;
-  right: 0;
-}
-
-.corner-div.bottom-left {
-  transform: translate(-50%, 50%);
-  border-bottom: none;
-  border-left: none;
-  bottom: 0;
-  left: 0;
-}
-
-.corner-div.bottom-right {
-  transform: translate(50%, 50%);
-  bottom: 0;
-  right: 0;
-}
-
-/* ---------------------- */
-/* END - Corner div styles */
 
 
 
