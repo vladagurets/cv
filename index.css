@@ -7,7 +7,7 @@
   --gap-span: 10px;
   --font-color: black;
   --background-color: white;
-  --main-border: 1px solid var(--background-color);
+  --main-border: 1px solid var(--font-color);
 }
 
 * {
@@ -100,6 +100,8 @@ ul > li {
 .photo {
   grid-area: photo;
   display: flex;
+  background: linear-gradient(to top right, transparent calc(50% - 1px), var(--font-color), transparent calc(50% + 1px)), linear-gradient(to bottom right, transparent calc(50% - 1px), var(--font-color), transparent calc(50% + 1px));
+  position: relative;
 }
 
 .about {
@@ -125,7 +127,7 @@ ul > li {
 .avatar-wrapper {
   margin: auto;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid var(--font-color);
   padding: 3px;
 }
 
@@ -133,7 +135,7 @@ ul > li {
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: calc(var(--avatar-size) / 2);
-  border: var(--main-border);
+  /* border: var(--main-border); */
   background-repeat: no-repeat;
   background-image: url(./avatar.jpg);
   background-size: cover;
@@ -164,6 +166,11 @@ ul > li {
 
 .bullet-list {
   padding-left: 25px;
+  list-style-type: circle;
+}
+
+.bullet-list > li:hover {
+  list-style-type: disc;
 }
 
 .education-list li > div {
@@ -212,18 +219,12 @@ ul > li {
   padding-bottom: 5px;
 }
 
-.work-description-list  {
+.work-description-list, .skills-list  {
   font-size: 13px;
 }
 
-.work-description-list > li:hover {
-  list-style-type: disc;
-}
-
-.skills-list > li {
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
+#techSkillsList {
+  columns: 2;
 }
 
 

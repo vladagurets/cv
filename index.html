@@ -41,12 +41,19 @@
           <div class="company-name">Decision Mapper Inc.</div>
           <ul class="work-description-list bullet-list">
             <li>
-              Carried out software for sales management for consulting company
+              Software delivery
             </li>
             <li>
-              Resolved problems: realtime data driving between server/multiple clients, rich-texts, collaborative editing of mongo documents, comment mode for any UI control, 
-              PDF generation, PPT generation, editable tables, access controls for documents, document operation versioning, 
-              email generation, Adobe Analytics integration.
+              System/module designing/development
+            </li>
+            <li>
+              Systems and data migrations
+            </li>
+            <li>
+              Mentoring
+            </li>
+            <li>
+              HR interviewing
             </li>
           </ul>
         </li>
@@ -62,10 +69,7 @@
           <div class="work-title"><b>Front-end / Full-stack developer</b> <label>02/2016 - 08/2017</label></div>
           <div class="company-name">Tewris LLC.</div>
           <ul class="work-description-list bullet-list">
-            <li>Carried out software for delivery service system</li>
-            <li>Carried out mobile app for delivery service</li>
-            <li>Carried out client app for insurance system</li>
-            <li>Carried out client app for shop of auto-parts shop</li>
+            <li>Carried out: software for delivery service system, client app for insurance system, app for auto-parts shop</li>
           </ul>
         </li>
       </ul>
@@ -85,7 +89,7 @@
       </ul>
     </section>
     <section class="contacts">
-      <h3>Contact</h3>
+      <h3>Contacts</h3>
       <ul class='no-bullets contact-list'>
         <li>
           <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="mail" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"></path></svg>
@@ -106,42 +110,34 @@
       </ul>
     </section>
     <section class="skills">
-      <h3>Skills</h3>
-      <ul class="no-bullets skills-list">
-        <li>
-          JavaScript
-          <input type="range" min="0" max="100" value="100" disabled>
-        </li>
-        <li>
-          ReactJS
-          <input type="range" min="0" max="100" value="100" disabled>
-        </li>
-        <li>
-          MongoDB
-          <input type="range" min="0" max="100" value="75" disabled>
-        </li>
-        <li>
-          Webpack
-          <input type="range" min="0" max="100" value="75" disabled>
-        </li>
-        <li>
-          GIT
-          <input type="range" min="0" max="100" value="75" disabled>
-        </li>
-        <li>
-          Docker
-          <input type="range" min="0" max="100" value="75" disabled>
-        </li>
-        <li>
-          UNIX
-          <input type="range" min="0" max="100" value="60" disabled>
-        </li>
-        <li>
-          Svelte
-          <input type="range" min="0" max="100" value="50" disabled>
-        </li>
-      </ul>
+      <h3>Tech skills</h3>
+      <ul class="skills-list bullet-list" id='techSkillsList'></ul>
+      <h3>Hard skills</h3>
+      <ul class="skills-list bullet-list" id='hardSkillsList'></ul>
+      <h3>Soft skills</h3>
+      <ul class="skills-list bullet-list" id='softSkillsList'></ul>
     </section>
+    <script type="module">
+      import { TECH_SKILLS, HARD_SKILLS, SOFT_SKILLS } from "./constants.mjs"
+      const techList = document.getElementById('techSkillsList')
+      const hardList = document.getElementById('hardSkillsList')
+      const softList = document.getElementById('softSkillsList')
+      TECH_SKILLS.forEach(el => {
+        const li = document.createElement('li')
+        li.innerText = el
+        techList.appendChild(li)
+      })
+      HARD_SKILLS.forEach(el => {
+        const li = document.createElement('li')
+        li.innerText = el
+        hardList.appendChild(li)
+      })
+      SOFT_SKILLS.forEach(el => {
+        const li = document.createElement('li')
+        li.innerText = el
+        softList.appendChild(li)
+      })
+    </script>
   </article>
 </body>
 </html>
