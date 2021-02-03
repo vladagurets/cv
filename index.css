@@ -132,14 +132,14 @@ ul > li {
 }
 
 .avatar {
-  width: var(--avatar-size);
-  height: var(--avatar-size);
-  border-radius: calc(var(--avatar-size) / 2);
-  /* border: var(--main-border); */
-  background-repeat: no-repeat;
   background-image: url(./avatar.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
+  border-radius: calc(var(--avatar-size) / 2);
+  filter: grayscale(100%);
+  height: var(--avatar-size);
   position: relative;
+  width: var(--avatar-size);
 }
 
 .avatar::after {
@@ -392,7 +392,7 @@ input:checked + .slider:before {
   .avatar {
     content: url(./avatar.jpg);
   }
-  .switch {
+  body .switch {
     display: none;
   }
 }
