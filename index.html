@@ -143,11 +143,17 @@
   <script>
     const DARK_THEME = 'dark'
     const LIGHT_THEME = 'light'
-    const isSystemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 
-    const currentTheme = getTheme() || (isSystemDark ? DARK_THEME : LIGHT_THEME)
-    setTheme(currentTheme)
-    setSwitchValue(currentTheme === DARK_THEME)
+    initTheme()
+
+    function initTheme () {
+      const isSystemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+
+      const currentTheme = getTheme() || (isSystemDark ? DARK_THEME : LIGHT_THEME)
+      setTheme(currentTheme)
+      localStorage.setItem('theme', currentTheme)
+      setSwitchValue(currentTheme === DARK_THEME)
+    }
 
     function getTheme () {
       return localStorage.getItem('theme')
