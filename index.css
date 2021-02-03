@@ -136,7 +136,6 @@ ul > li {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: calc(var(--avatar-size) / 2);
-  filter: grayscale(100%);
   height: var(--avatar-size);
   position: relative;
   width: var(--avatar-size);
