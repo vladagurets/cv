@@ -382,6 +382,11 @@ input:checked + .slider:before {
 /* ---------------------- */
 
 @media print {
+  /* Disable dark mode for print request */
+  body.-dark {
+    --font-color: black;
+    --background-color: white;
+  }
   .resume {
     width : 210mm;
     height: 297mm;
