@@ -8,9 +8,9 @@ export const TECH_SKILLS = [
 ]
 
 export const HARD_SKILLS = [
-  'Data mining/migration',
+  'Data migration',
   'System migration',
-  'System/module designing',
+  'Software designing',
   'Web development'
 ]
 
@@ -20,6 +20,5 @@ export const SOFT_SKILLS = [
   'Mentoring',
   'PM skills',
   'Problem-solving',
-  'Teamwork',
-  'Wilingness to learn'
+  'Teamwork'
 ]
