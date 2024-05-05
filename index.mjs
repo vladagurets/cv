@@ -1,6 +1,6 @@
 'use strict';
 
-import { RANDOMIZED_IM_GOOD_AT_TAGS } from "./constants.mjs"
+import { IM_GOOD_AT_TAGS } from "./constants.mjs"
 
 const DARK_THEME = 'dark'
 const LIGHT_THEME = 'light'
@@ -38,7 +38,7 @@ function toggleTheme () {
 function renderImGoodAtList() {
   const imGoodAtList = document.getElementById('im-good-at-list')
 
-  RANDOMIZED_IM_GOOD_AT_TAGS.forEach(el => {
+  IM_GOOD_AT_TAGS.forEach(el => {
     const li = document.createElement('li')
     li.innerText = el
     imGoodAtList.appendChild(li)
