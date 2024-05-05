@@ -1,6 +1,6 @@
 'use strict';
 
-import { IM_GOOD_AT_TAGS } from "./constants.mjs"
+import { IM_GOOD_AT_TAGS, TECHNOLOGIES } from "./constants.mjs"
 
 const DARK_THEME = 'dark'
 const LIGHT_THEME = 'light'
@@ -45,9 +45,20 @@ function renderImGoodAtList() {
   })
 }
 
+function renderInstrumentationList() {
+  const imGoodAtList = document.getElementById('tech-instrumentation-list')
+
+  TECHNOLOGIES.forEach(el => {
+    const li = document.createElement('li')
+    li.innerText = el
+    imGoodAtList.appendChild(li)
+  })
+}
+
 function init() {
   initTheme()
   renderImGoodAtList()
+  renderInstrumentationList()
 
   window._toggleTheme = toggleTheme
 }
