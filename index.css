@@ -252,6 +252,17 @@ ul > li {
   columns: 2;
 }
 
+.langs-block {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.langs-block-icons {
+  margin-left: 5px;
+}
+
 
 
 /* START - Switcher styles */
