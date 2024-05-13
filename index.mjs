@@ -62,3 +62,5 @@ function init() {
 
   window._toggleTheme = toggleTheme
 }
+
+// Copyright (C) 2024 Vladyslav Ohirenko

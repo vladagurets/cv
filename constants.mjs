@@ -28,3 +28,5 @@ export const TECHNOLOGIES = [
   'GCP',
   'CI/CD',
 ]
+
+// Copyright (C) 2024 Vladyslav Ohirenko
