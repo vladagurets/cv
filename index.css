@@ -488,6 +488,9 @@ input:checked + .slider:before {
   body .switch {
     display: none;
   }
+  .bounce {
+    animation: none;
+  }
 }
 
 @page {
