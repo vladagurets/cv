@@ -66,7 +66,8 @@ p, span, h1, h2, h3, b, i, div, li {
   color: var(--font-color);
 }
 
-section {
+.resume > section,
+.resume > header {
   border-color: var(--font-color) !important;
 }
 
@@ -97,7 +98,8 @@ ul > li {
     "education education contacts";
 }
 
-.resume > section {
+.resume > section,
+.resume > header {
   padding: var(--cell-padding);
   border: var(--main-border);
   position: relative;
@@ -111,7 +113,7 @@ ul > li {
   justify-content: center;
 }
 
-.name > h2 {
+.name h2 {
   margin-bottom: 15px;
   font-size: 12px;
 }
@@ -190,12 +192,15 @@ body.-dark .avatar {
   flex-direction: column;
 }
 
-.education-list li b {
+.education-list li b,
+.education-list li strong {
   font-size: 12px;
 }
 
-.education-list li span {
+.education-list li span,
+.education-list li time {
   font-size: calc(var(--h1-size) * .4);
+  font-style: italic;
   opacity: .7;
 }
 
@@ -223,11 +228,12 @@ body.-dark .avatar {
   justify-content: space-between;
 }
 
-.work-title > b {
+.work-title > strong {
   padding-left: 10px;
 }
 
-.work-title > label {
+.work-title > label,
+.work-title time {
   font-style: italic;
   font-size: calc(var(--h1-size) * .4);
 }
