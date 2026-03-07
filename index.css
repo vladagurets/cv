@@ -471,6 +471,13 @@ input:checked + .slider:before {
     --font-color: black;
     --background-color: white;
   }
+  .photo {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .avatar-wrapper {
+    background-color: white;
+  }
   .resume {
     width : 210mm;
     height: 297mm;
