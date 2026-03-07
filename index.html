@@ -17,10 +17,13 @@
   <meta property="twitter:url" content="https://vladagurets.github.io/cv/">
   <meta name="twitter:title" content="CV / Vladyslav Ohirenko">
   <meta name="twitter:description" content="CVs should be interactive, browser friendly and print ready 🕸">
-  <meta name="twitter:image" content="https://vladagurets.github.io/cv/avatar.jpg">
+  <meta name="twitter:image" content="https://vladagurets.github.io/cv/avatar.jpeg">
 
   <link rel="shortcut icon" href="./favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="./index.css">
   <title>Vladyslav Ohirenko | SWE/SRE</title>
 </head>
@@ -28,7 +31,7 @@
   <article class="resume">
     <section class="name">
       <label class="switch">
-        <input id="theme-select" type="checkbox" onchange="_toggleTheme();">
+        <input id="theme-select" type="checkbox" onchange="toggleTheme()">
         <span class="slider round"></span>
       </label>
       <h1>Vladyslav Oh<div class='i-container'><p class="bounce height-fix">.</p><p class="height-fix">ı</p></div>renko</h1>
@@ -42,7 +45,7 @@
     </section>
     <section class="photo">
       <div class="avatar-wrapper">
-        <div class="avatar"></div>
+        <img class="avatar" src="./avatar.png" alt="" width="170" height="170" loading="lazy" decoding="async">
       </div>
     </section>
     <section class="work">
@@ -152,7 +155,29 @@
       </ul>
     </section>
   </article>
-  <script type="module" src="index.mjs"></script>
+  <script>
+    (function () {
+      var DARK = 'dark', LIGHT = 'light';
+      function getTheme() { return localStorage.getItem('theme'); }
+      function setTheme(theme) { document.body.className = '-' + theme; }
+      function setSwitch(checked) { document.getElementById('theme-select').checked = checked; }
+      function initTheme() {
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = getTheme() || (systemDark ? DARK : LIGHT);
+        setTheme(theme);
+        localStorage.setItem('theme', theme);
+        setSwitch(theme === DARK);
+      }
+      function toggleTheme() {
+        var theme = getTheme() === DARK ? LIGHT : DARK;
+        localStorage.setItem('theme', theme);
+        setTheme(theme);
+        setSwitch(theme === DARK);
+      }
+      initTheme();
+      window.toggleTheme = toggleTheme;
+    })();
+  </script>
 </body>
 </html>
 

@@ -161,13 +161,11 @@ body.-dark .photo {
 }
 
 .avatar {
-  background-image: url(./avatar.png);
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: calc(var(--avatar-size) / 2);
   height: var(--avatar-size);
-  position: relative;
   width: var(--avatar-size);
+  object-fit: cover;
+  display: block;
 }
 
 body.-dark .avatar {
@@ -475,7 +473,6 @@ input:checked + .slider:before {
     text-decoration: none;
   }
   .avatar {
-    content: url(./avatar.png);
     filter: none;
   }
   body.-dark .avatar {
