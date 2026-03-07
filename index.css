@@ -80,7 +80,7 @@ ul > li {
 }
 
 .self-description {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .resume {
@@ -262,7 +262,7 @@ body.-dark .avatar {
 }
 
 .work-description-list, .skills-list, .work-description  {
-  font-size: 10px;
+  font-size: 12px;
   font-style: italic;
 }
 
@@ -489,6 +489,9 @@ input:checked + .slider:before {
   }
   .bounce {
     animation: none;
+  }
+  .work-description, .self-description {
+    font-size: 10px;
   }
 }
 
