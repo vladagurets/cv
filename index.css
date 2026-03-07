@@ -79,7 +79,7 @@ ul > li {
 }
 
 .self-description {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .resume {
@@ -132,7 +132,7 @@ ul > li {
 }
 
 .work-list > li {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .work-list > li:last-child {
@@ -213,16 +213,25 @@ body.-dark .avatar {
 }
 
 .work-title {
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 
+.work-title > b {
+  padding-left: 10px;
+}
+
 .work-title > label {
   font-style: italic;
   font-size: calc(var(--h1-size) * .4);
+}
+
+.work-title::before {
+  content: '*';
+  position: absolute;
 }
 
 .company-name {
@@ -244,7 +253,7 @@ body.-dark .avatar {
 }
 
 .work-description-list, .skills-list, .work-description  {
-  font-size: 12px;
+  font-size: 10px;
   font-style: italic;
 }
 
