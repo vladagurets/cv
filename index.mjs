@@ -37,6 +37,7 @@ function toggleTheme () {
 
 function renderImGoodAtList() {
   const imGoodAtList = document.getElementById('im-good-at-list')
+  if (!imGoodAtList) return
 
   IM_GOOD_AT_TAGS.forEach(el => {
     const li = document.createElement('li')
@@ -47,6 +48,7 @@ function renderImGoodAtList() {
 
 function renderInstrumentationList() {
   const imGoodAtList = document.getElementById('tech-instrumentation-list')
+  if (!imGoodAtList) return
 
   TECHNOLOGIES.forEach(el => {
     const li = document.createElement('li')

@@ -80,7 +80,7 @@ ul > li {
 }
 
 .self-description {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .resume {
@@ -93,8 +93,8 @@ ul > li {
   grid-gap: var(--gap-span);
   grid-template-areas:
     "name name photo"
-    "work work skills"
-    "work work skills"
+    "work work work"
+    "work work work"
     "education education contacts";
 }
 
@@ -113,7 +113,7 @@ ul > li {
 }
 
 .name > h2 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-decoration: underline;
 }
 
@@ -132,16 +132,20 @@ ul > li {
   grid-area: work;
 }
 
+.work-list > li {
+  padding-bottom: 20px;
+}
+
+.work-list > li:last-child {
+  padding-bottom: 0;
+}
+
 .education {
   grid-area: education;
 }
 
 .contacts {
   grid-area: contacts;
-}
-
-.skills {
-  grid-area: skills;
 }
 
 .avatar-wrapper {
@@ -239,13 +243,31 @@ ul > li {
 .company-name {
   font-style: italic;
   font-size: 11px;
-  padding-bottom: 5px;
   opacity: .7;
 }
 
+.company-block .company-name {
+  padding-bottom: 2px;
+}
+
+.company-roles .role {
+  margin-top: 10px;
+}
+
+.company-roles .role:first-child {
+  margin-top: 0;
+}
+
 .work-description-list, .skills-list, .work-description  {
-  font-size: 10px;
+  font-size: 12px;
   font-style: italic;
+}
+
+.work-skills {
+  font-size: 9px;
+  font-style: italic;
+  opacity: .8;
+  margin-top: 4px;
 }
 
 #techSkillsList {
