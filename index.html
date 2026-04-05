@@ -20,10 +20,7 @@
   <meta name="twitter:image" content="https://vladagurets.github.io/cv/avatar.jpeg">
 
   <link rel="shortcut icon" href="./japanese_ogre.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="./fonts/source-code-pro-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./index.css">
   <title>Vladyslav Ohirenko | SWE/SRE</title>
 </head>
@@ -45,7 +42,10 @@
     </header>
     <section class="photo" aria-label="Photo">
       <figure class="avatar-wrapper">
-        <img class="avatar" src="./avatar.png" alt="Vladyslav Ohirenko" width="170" height="170" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="./avatar.webp" type="image/webp">
+          <img class="avatar" src="./avatar.png" alt="Vladyslav Ohirenko" width="170" height="170" loading="lazy" decoding="async">
+        </picture>
       </figure>
     </section>
     <section class="work">
